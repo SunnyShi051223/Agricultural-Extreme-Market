@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agricultural-extreme-market"
+version = "0.1.0"
+description = "Instrument-specific Q1 extreme market database research"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "akshare",
+  "matplotlib",
+  "numpy",
+  "pandas",
+  "pyarrow",
+  "PyYAML",
+  "requests",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
