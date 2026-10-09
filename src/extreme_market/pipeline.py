@@ -13,7 +13,7 @@ from extreme_market.continuous import build_continuous_series, build_term_struct
 from extreme_market.episodes import scan_extreme_episodes
 from extreme_market.providers.akshare_sina import fetch_contract_panel
 from extreme_market.providers.tradingview import fetch_continuous
-from extreme_market.quality import inspect_continuous, inspect_contract_panel
+from extreme_market.quality import build_gap_audit, build_price_jump_audit, inspect_continuous, inspect_contract_panel
 from extreme_market.schema import BAR_COLUMNS
 
 
@@ -40,11 +40,11 @@ def _manifest(path: Path, payload: dict[str, object]) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
 
 
-def _write_external_inventory(target: Path, term_available: bool) -> None:
+def _write_external_inventory(target: Path, term_available: bool, instrument_name: str = "instrument") -> None:
     rows = [
         ("term_structure", "Available from individual contract bars; top-two open-interest spread; same-day ex-post ranking" if term_available else "not_available_from_continuous_proxy", "AkShare/Sina futures contracts"),
         ("spot_basis", "not_yet_acquired", "No verified point-in-time source configured"),
-        ("soybean_meal_inventory", "not_yet_acquired", "Weekly inventory source requires separate source validation"),
+        (f"{instrument_name}_inventory", "not_yet_acquired", "Inventory source requires separate source validation"),
         ("crush_margin_and_processing_profit", "not_yet_acquired", "No verified point-in-time source configured"),
         ("supply_demand_and_imports", "not_yet_acquired", "No verified point-in-time source configured"),
         ("weather_and_crop_conditions", "not_yet_acquired", "No verified point-in-time source configured"),
@@ -110,6 +110,8 @@ def build_from_sources(config: dict, base_dir: Path, progress=print) -> dict[str
     rolls.to_csv(processed_dir / "roll_adjustments.csv", index=False, encoding="utf-8-sig")
     term = build_term_structure(contract_panel)
     term.to_csv(processed_dir / "term_structure_top_open_interest.csv", index=False, encoding="utf-8-sig")
+    build_gap_audit(contract_panel).to_csv(reports_dir / "trading_date_gap_audit.csv", index=False, encoding="utf-8-sig")
+    build_price_jump_audit(continuous).to_csv(reports_dir / "price_jump_audit.csv", index=False, encoding="utf-8-sig")
 
     if not tv_bars.empty:
         tv_compare = tv_bars[["trade_date", "close"]].rename(columns={"close": "tradingview_close"}).merge(
@@ -124,6 +126,7 @@ def build_from_sources(config: dict, base_dir: Path, progress=print) -> dict[str
 
     candidates, trigger_map, thresholds = scan_extreme_episodes(
         continuous,
+        instrument_name=instrument["name_zh"],
         product_code=instrument["product_code"],
         horizons=tuple(int(value) for value in episode_cfg["horizons"]),
         lower_quantile=float(episode_cfg["lower_quantile"]),
@@ -168,7 +171,7 @@ def build_from_sources(config: dict, base_dir: Path, progress=print) -> dict[str
         }
     )
     pd.DataFrame([quality]).to_csv(reports_dir / "data_quality_summary.csv", index=False, encoding="utf-8-sig")
-    _write_external_inventory(reports_dir / "external_data_inventory.csv", bool("far_contract" in term and term["far_contract"].notna().any()))
+    _write_external_inventory(reports_dir / "external_data_inventory.csv", bool("far_contract" in term and term["far_contract"].notna().any()), instrument["name_zh"])
     _write_coverage_report(reports_dir / "q1_coverage_report.md", quality, audit_frame, thresholds, candidates)
     _manifest(
         reports_dir / "build_manifest.json",
@@ -179,6 +182,7 @@ def build_from_sources(config: dict, base_dir: Path, progress=print) -> dict[str
             "rows_contract_panel": len(contract_panel),
             "rows_continuous": len(continuous),
             "candidate_episodes": len(candidates),
+            "quality_outputs": ["trading_date_gap_audit.csv", "price_jump_audit.csv"],
             "event_definition": "Full-history empirical 2.5%/97.5% tails for 20/60-session adjusted-close returns; same-direction windows are merged by overlap or <=10 trading-session gaps; labels are ex-post and pending manual review.",
         },
     )
@@ -212,11 +216,15 @@ def _write_unavailable_outputs(instrument_dir: Path, reports_dir: Path, audits: 
 
 
 def _write_coverage_report(target: Path, quality: dict[str, object], audits: pd.DataFrame, thresholds: pd.DataFrame, candidates: pd.DataFrame) -> None:
-    audit_table = audits[[col for col in ("source", "symbol", "status", "row_count", "first_date", "last_date", "message") if col in audits.columns]]
+    audit_columns = [col for col in ("source", "symbol", "status", "row_count", "first_date", "last_date", "message") if col in audits.columns]
+    audit_table = audits[audit_columns] if audit_columns else pd.DataFrame(columns=["source", "symbol", "status", "row_count", "first_date", "last_date", "message"])
     threshold_table = thresholds.to_markdown(index=False) if not thresholds.empty else "No thresholds could be estimated."
-    source_summary = audits.groupby(["source", "status"], dropna=False).size().rename("attempts").reset_index().to_markdown(index=False)
+    if {"source", "status"}.issubset(audits.columns):
+        source_summary = audits.groupby(["source", "status"], dropna=False).size().rename("attempts").reset_index().to_markdown(index=False)
+    else:
+        source_summary = "No new source retrieval was performed during rebuild; source audit is retained from the original build."
     text = [
-        "# 豆粕 Q1 Extreme-Market 数据覆盖与质量报告",
+        f"# {quality.get('instrument', 'Instrument')} Q1 Extreme-Market 数据覆盖与质量报告",
         "",
         "本报告只记录历史数据和事后事件候选，不构成实时信号或交易结论。",
         "",
@@ -225,10 +233,10 @@ def _write_coverage_report(target: Path, quality: dict[str, object], audits: pd.
         f"- 行情状态：{quality.get('status')}; {quality.get('rows', 0)} 条合约日线、{quality.get('contracts', 0)} 个合约。",
         f"- 合约面板覆盖：{quality.get('first_date', '')} 至 {quality.get('last_date', '')}；连续序列覆盖：{quality.get('continuous_first_date', '')} 至 {quality.get('continuous_last_date', '')}。",
         f"- 缺失成交量：{quality.get('missing_volume_rows', 0)} 行；缺失持仓量：{quality.get('missing_open_interest_rows', 0)} 行。",
-        f"- 重复合约交易日：{quality.get('duplicate_contract_dates', 0)}；OHLC关系异常：{quality.get('invalid_ohlc_rows', 0)} 行。",
+        f"- 重复合约交易日：{quality.get('duplicate_contract_dates', 0)}；OHLC关系异常：{quality.get('invalid_ohlc_rows', 0)} 行（日期：{quality.get('invalid_ohlc_dates', '') or '无'}）。",
         f"- 换月：{quality.get('roll_count', 0)} 次；缺少同日新旧合约收盘价、未能比例调整：{quality.get('rolls_without_ratio_adjustment', 0)} 次。",
-        f"- 连续主力原始/调整后最大单日绝对收益：{quality.get('max_abs_raw_1d_return', float('nan'))} / {quality.get('max_abs_adjusted_1d_return', float('nan'))}。请检查原始大幅波动和换月边界。",
-        f"- 候选事件：{quality.get('candidate_episode_count', 0)} 条，全部待人工审核。",
+        f"- 连续主力原始/调整后最大单日绝对收益：{quality.get('max_abs_raw_1d_return', float('nan'))} / {quality.get('max_abs_adjusted_1d_return', float('nan'))}；超过8%的跳变：{quality.get('large_jump_rows', 0)} 行，详见 `price_jump_audit.csv`。",
+        f"- 候选事件：{quality.get('candidate_episode_count', 0)} 条；当前待人工审核：{quality.get('pending_review_count', 0)} 条。",
         f"- 超过4个自然日的数据间隔（需结合中国交易所节假日核验）：{quality.get('gaps_over_four_calendar_days', '') or '无'}。",
         "",
         "## 来源状态",
@@ -241,7 +249,7 @@ def _write_coverage_report(target: Path, quality: dict[str, object], audits: pd.
     for _, row in audit_table.iterrows():
         vals = [str(row.get(key, "")).replace("|", "\\|").replace("\n", " ") for key in ("source", "symbol", "status", "row_count", "first_date", "last_date", "message")]
         text.append("|" + "|".join(vals) + "|")
-    text.extend(["", "## 20/60日收益尾部阈值", "", threshold_table, "", "## 外部字段", "", "本次行情源成功返回的是 AkShare/Sina 的长历史主力连续代理 M0，因此期限结构、基差、库存、产业利润、供需、天气与宏观字段没有被冒充为已获得；它们以缺失/待采集状态登记，不以零值代替。若后续取得逐合约面板，程序可重新构造逐日 top-two 持仓量期限结构。", "", "## 候选定义与审核", "", "使用比例回溯调整收盘价计算全历史20/60交易日累计收益；每个周期分别取下尾2.5%和上尾2.5%。窗口重叠或同方向间隔不超过10个交易日时合并。事件区间与加速时间为自动候选边界，图中提供前后各60个交易日，必须人工审核后才可形成最终数据库。", "", "候选 CSV 中保留 `review_status=pending`。审核人可在 `candidate_review_log.csv` 中填写 `approved`、`modified` 或 `rejected`、审核人、日期和说明；随后运行 `finalize` 生成最终事件库。", ""])
+    text.extend(["", "## 20/60日收益尾部阈值", "", threshold_table, "", "## 外部字段", "", "本次行情源成功返回的是 AkShare/Sina 的长历史品种连续代理，因此期限结构、基差、库存、产业利润、供需、天气与宏观字段没有被冒充为已获得；它们以缺失/待采集状态登记，不以零值代替。若后续取得逐合约面板，程序可重新构造逐日 top-two 持仓量期限结构。", "", "## 数据缺口与价格跳变审计", "", "`trading_date_gap_audit.csv` 列出较长日期间隔并区分可能的交易所节假日/休市与其他缺口；`price_jump_audit.csv` 列出超过8%的日收益或开盘跳空。对于连续代理，标记为 `proxy_splice_review_required` 的跳变不能解释为真实逐合约收益，后续需以交割合约面板回溯核实。", "", "## 候选定义与审核", "", "使用比例回溯调整收盘价计算全历史20/60交易日累计收益；每个周期分别取下尾2.5%和上尾2.5%。窗口重叠或同方向间隔不超过10个交易日时合并。事件区间的结束规则为合并窗口中的最后一个尾部触发日；事件表额外记录持续交易日数、加速前/极值/结束阶段收益、极值后反转和事件后5/20/60日收益。事件区间与加速时间为自动候选边界，图中提供前后各60个交易日，必须人工审核后才可形成最终数据库。", "", "候选 CSV 中保留 `review_status=pending`。审核人可在 `candidate_review_log.csv` 中填写 `approved`、`modified` 或 `rejected`、审核人、日期和说明；随后运行 `finalize` 生成最终事件库。", ""])
     target.write_text("\n".join(text), encoding="utf-8")
 
 
@@ -278,9 +286,13 @@ def _build_from_panel(config: dict, base_dir: Path, source: _SavedPanelSource) -
     rolls.to_csv(processed_dir / "roll_adjustments.csv", index=False, encoding="utf-8-sig")
     term = build_term_structure(source.panel)
     term.to_csv(processed_dir / "term_structure_top_open_interest.csv", index=False, encoding="utf-8-sig")
+    reports_dir.mkdir(parents=True, exist_ok=True)
+    build_gap_audit(source.panel).to_csv(reports_dir / "trading_date_gap_audit.csv", index=False, encoding="utf-8-sig")
+    build_price_jump_audit(continuous).to_csv(reports_dir / "price_jump_audit.csv", index=False, encoding="utf-8-sig")
     cfg = config["episodes"]
     candidates, trigger_map, thresholds = scan_extreme_episodes(
         continuous,
+        instrument_name=instrument["name_zh"],
         product_code=instrument["product_code"],
         horizons=tuple(cfg["horizons"]),
         lower_quantile=cfg["lower_quantile"],
@@ -302,6 +314,21 @@ def _build_from_panel(config: dict, base_dir: Path, source: _SavedPanelSource) -
         path["episode_id"] = episode.episode_id
         path["in_candidate_interval"] = path.trade_date.between(start, end)
         path.to_csv(q1_dir / episode.path_csv, index=False, encoding="utf-8-sig")
+    quality = inspect_contract_panel(source.panel)
+    quality.update(inspect_continuous(continuous, rolls))
+    quality.update(
+        {
+            "instrument": instrument["name_zh"],
+            "cutoff_exclusive": instrument["cutoff_exclusive"],
+            "candidate_episode_count": len(candidates),
+            "pending_review_count": int((candidates.review_status == "pending").sum()) if "review_status" in candidates else 0,
+            "term_structure_rows": len(term),
+        }
+    )
+    pd.DataFrame([quality]).to_csv(reports_dir / "data_quality_summary.csv", index=False, encoding="utf-8-sig")
+    source_audit_path = reports_dir / "data_source_attempts.csv"
+    saved_audits = pd.read_csv(source_audit_path, encoding="utf-8-sig") if source_audit_path.exists() else pd.DataFrame()
+    _write_coverage_report(reports_dir / "q1_coverage_report.md", quality, saved_audits, thresholds, candidates)
     return {"status": "rebuilt", "continuous_rows": len(continuous), "candidates": len(candidates)}
 
 

@@ -1,0 +1,9 @@
+﻿previous_trade_date,trade_date,previous_close,open,close,raw_close_return_1d,adjusted_close_return_1d,open_gap_return,active_contract,roll_adjustment_status,jump_classification
+2013-05-23,2013-05-24,2389.0,2149.0,2141.0,-0.1038091251569695,-0.1038091251569695,-0.10046044370029306,RM0,no_individual_contract_mapping,proxy_splice_review_required
+2014-07-22,2014-07-23,2826.0,2404.0,2386.0,-0.15569709837225765,-0.15569709837225765,-0.1493276716206653,RM0,no_individual_contract_mapping,proxy_splice_review_required
+2015-09-02,2015-09-07,2079.0,1932.0,1870.0,-0.10052910052910058,-0.10052910052910058,-0.07070707070707072,RM0,no_individual_contract_mapping,proxy_splice_review_required
+2016-12-30,2017-01-03,2308.0,2496.0,2372.0,0.02772963604852685,0.02772963604852685,0.08145580589254764,RM0,no_individual_contract_mapping,proxy_splice_review_required
+2022-01-28,2022-02-07,3161.0,3395.0,3425.0,0.08351787409047762,0.08351787409047762,0.07402720658019613,RM0,no_individual_contract_mapping,proxy_splice_review_required
+2022-06-27,2022-06-28,3356.0,2792.0,2838.0,-0.15435041716328968,-0.15435041716328968,-0.16805721096543502,RM0,no_individual_contract_mapping,proxy_splice_review_required
+2023-08-16,2023-08-17,3969.0,3283.0,3345.0,-0.15721844293272869,-0.15721844293272869,-0.1728395061728395,RM0,no_individual_contract_mapping,proxy_splice_review_required
+2025-08-07,2025-08-08,2739.0,2468.0,2506.0,-0.0850675428988682,-0.0850675428988682,-0.09894121942314715,RM0,no_individual_contract_mapping,proxy_splice_review_required

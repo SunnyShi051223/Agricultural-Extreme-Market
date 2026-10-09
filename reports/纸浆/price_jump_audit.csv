@@ -1,0 +1,2 @@
+﻿previous_trade_date,trade_date,previous_close,open,close,raw_close_return_1d,adjusted_close_return_1d,open_gap_return,active_contract,roll_adjustment_status,jump_classification
+2022-08-16,2022-08-17,6926.0,6390.0,6264.0,-0.09558186543459424,-0.09558186543459424,-0.07738954663586484,SP0,no_individual_contract_mapping,proxy_splice_review_required

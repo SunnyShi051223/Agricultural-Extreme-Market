@@ -1,0 +1,6 @@
+﻿previous_trade_date,trade_date,previous_close,open,close,raw_close_return_1d,adjusted_close_return_1d,open_gap_return,active_contract,roll_adjustment_status,jump_classification
+2008-01-03,2008-01-04,11450.0,10236.0,10112.0,-0.11685589519650652,-0.11685589519650652,-0.10602620087336245,OI0,no_individual_contract_mapping,proxy_splice_review_required
+2008-01-04,2008-01-07,10112.0,10962.0,11040.0,0.09177215189873422,0.09177215189873422,0.08405854430379756,OI0,no_individual_contract_mapping,proxy_splice_review_required
+2008-01-07,2008-01-08,11040.0,10072.0,10200.0,-0.07608695652173914,-0.07608695652173914,-0.08768115942028987,OI0,no_individual_contract_mapping,proxy_splice_review_required
+2008-01-09,2008-01-10,10288.0,11202.0,11600.0,0.1275272161741836,0.1275272161741836,0.08884136858475888,OI0,no_individual_contract_mapping,proxy_splice_review_required
+2008-01-10,2008-01-11,11600.0,10388.0,10620.0,-0.08448275862068966,-0.08448275862068966,-0.10448275862068968,OI0,no_individual_contract_mapping,proxy_splice_review_required

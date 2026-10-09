@@ -1,0 +1,24 @@
+{
+  "created_at_utc": "2026-10-09T15:21:47.365398+00:00",
+  "instrument": {
+    "name_zh": "花生",
+    "name_en": "花生",
+    "exchange": "CZCE",
+    "product_code": "PK",
+    "tradingview_symbol": "PK1!",
+    "tradingview_exchange": "CZCE",
+    "contract_search_start": "2000-01-01",
+    "cutoff_exclusive": "2026-10-08",
+    "tradingview_bars": 10000,
+    "request_pause_seconds": 0.05
+  },
+  "cutoff_exclusive": "2026-10-08",
+  "rows_contract_panel": 1373,
+  "rows_continuous": 1373,
+  "candidate_episodes": 8,
+  "quality_outputs": [
+    "trading_date_gap_audit.csv",
+    "price_jump_audit.csv"
+  ],
+  "event_definition": "Full-history empirical 2.5%/97.5% tails for 20/60-session adjusted-close returns; same-direction windows are merged by overlap or <=10 trading-session gaps; labels are ex-post and pending manual review."
+}

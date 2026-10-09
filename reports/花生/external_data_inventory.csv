@@ -1,0 +1,8 @@
+﻿variable_group,status,source_or_note
+term_structure,not_available_from_continuous_proxy,AkShare/Sina futures contracts
+spot_basis,not_yet_acquired,No verified point-in-time source configured
+花生_inventory,not_yet_acquired,Inventory source requires separate source validation
+crush_margin_and_processing_profit,not_yet_acquired,No verified point-in-time source configured
+supply_demand_and_imports,not_yet_acquired,No verified point-in-time source configured
+weather_and_crop_conditions,not_yet_acquired,No verified point-in-time source configured
+macro_variables,not_yet_acquired,No instrument-specific macro series configured in Q1 pilot

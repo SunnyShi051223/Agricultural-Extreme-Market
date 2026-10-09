@@ -1,0 +1,9 @@
+﻿episode_id,review_status,review_decision,reviewer,review_date,review_notes
+PK-DOWN-0001,approved,approved_for_q1_proxy_database,Codex,2026-10-09,自动一致性核对通过；本条纳入Q1连续代理历史事件库；行情源为AkShare/Sina品种连续代理；不等同于逐交割合约换月审计完成
+PK-DOWN-0002,approved,approved_for_q1_proxy_database,Codex,2026-10-09,自动一致性核对通过；本条纳入Q1连续代理历史事件库；行情源为AkShare/Sina品种连续代理；不等同于逐交割合约换月审计完成
+PK-UP-0001,approved,approved_for_q1_proxy_database,Codex,2026-10-09,自动一致性核对通过；本条纳入Q1连续代理历史事件库；行情源为AkShare/Sina品种连续代理；不等同于逐交割合约换月审计完成；与反方向候选区间重叠，按规则保留并标记
+PK-DOWN-0003,approved,approved_for_q1_proxy_database,Codex,2026-10-09,自动一致性核对通过；本条纳入Q1连续代理历史事件库；行情源为AkShare/Sina品种连续代理；不等同于逐交割合约换月审计完成；与反方向候选区间重叠，按规则保留并标记
+PK-UP-0002,approved,approved_for_q1_proxy_database,Codex,2026-10-09,自动一致性核对通过；本条纳入Q1连续代理历史事件库；行情源为AkShare/Sina品种连续代理；不等同于逐交割合约换月审计完成
+PK-DOWN-0004,approved,approved_for_q1_proxy_database,Codex,2026-10-09,自动一致性核对通过；本条纳入Q1连续代理历史事件库；行情源为AkShare/Sina品种连续代理；不等同于逐交割合约换月审计完成
+PK-DOWN-0005,approved,approved_for_q1_proxy_database,Codex,2026-10-09,自动一致性核对通过；本条纳入Q1连续代理历史事件库；行情源为AkShare/Sina品种连续代理；不等同于逐交割合约换月审计完成
+PK-DOWN-0006,approved,approved_for_q1_proxy_database,Codex,2026-10-09,自动一致性核对通过；本条纳入Q1连续代理历史事件库；行情源为AkShare/Sina品种连续代理；不等同于逐交割合约换月审计完成

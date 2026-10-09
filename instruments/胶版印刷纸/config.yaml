@@ -1,0 +1,29 @@
+instrument:
+  name_zh: 胶版印刷纸
+  name_en: 胶版印刷纸
+  exchange: SHFE
+  product_code: OP
+  tradingview_symbol: OP1!
+  tradingview_exchange: SHFE
+  contract_search_start: '2000-01-01'
+  cutoff_exclusive: '2026-10-08'
+  tradingview_bars: 10000
+  request_pause_seconds: 0.05
+continuous:
+  dominance_sessions: 2
+  missing_active_contract_policy: switch_to_best_available
+  ratio_adjustment: same_session_old_close_over_new_close
+episodes:
+  horizons:
+  - 20
+  - 60
+  lower_quantile: 0.025
+  upper_quantile: 0.975
+  merge_gap_sessions: 10
+  chart_context_sessions: 60
+paths:
+  raw_dir: data/market/raw/胶版印刷纸
+  processed_dir: data/market/processed/胶版印刷纸
+  instrument_dir: instruments/胶版印刷纸
+  external_template: data/fundamental/external_observations_template.csv
+  reports_dir: reports/胶版印刷纸

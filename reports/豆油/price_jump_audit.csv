@@ -1,0 +1,3 @@
+﻿previous_trade_date,trade_date,previous_close,open,close,raw_close_return_1d,adjusted_close_return_1d,open_gap_return,active_contract,roll_adjustment_status,jump_classification
+2008-03-07,2008-03-10,13300.0,12212.0,12212.0,-0.08180451127819544,-0.08180451127819544,-0.08180451127819544,Y0,no_individual_contract_mapping,proxy_splice_review_required
+2015-10-01,2015-10-08,5400.0,5884.0,5720.0,0.059259259259259345,0.059259259259259345,0.08962962962962973,Y0,no_individual_contract_mapping,proxy_splice_review_required

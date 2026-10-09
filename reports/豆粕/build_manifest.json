@@ -28,5 +28,19 @@
     },
     "final_event_file": "instruments/豆粕/01_Extreme_Market_Database/extreme_episodes.csv",
     "review_scope_note": "Approved for the Q1 historical proxy database; source is AkShare/Sina M0 continuous proxy and does not constitute delivery-contract roll audit completion."
+  },
+  "q1_improvements": {
+    "implemented": [
+      "trading_date_gap_audit.csv distinguishes long calendar gaps for holiday/break review",
+      "price_jump_audit.csv flags daily moves or opening gaps above 8 percent",
+      "episode records include duration, stage returns, post-extreme reversal, and post-event 5/20/60-session returns",
+      "episode records include segment_invalid_ohlc_rows",
+      "rebuild regenerates quality reports from saved raw data"
+    ],
+    "unresolved_data_limitations": [
+      "AkShare/Sina M0 continuous proxy is not a delivery-contract panel",
+      "TradingView retrieval unavailable in the dedicated environment",
+      "Two source OHLC relationship anomalies remain flagged for source-level review"
+    ]
   }
 }

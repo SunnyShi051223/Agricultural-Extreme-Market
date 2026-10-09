@@ -1,0 +1,170 @@
+[
+  {
+    "instrument": "优质强筋小麦",
+    "status": "rebuilt",
+    "continuous_rows": 4157,
+    "candidates": 32
+  },
+  {
+    "instrument": "原木",
+    "status": "rebuilt",
+    "continuous_rows": 456,
+    "candidates": 5
+  },
+  {
+    "instrument": "早籼稻",
+    "status": "rebuilt",
+    "continuous_rows": 2430,
+    "candidates": 18
+  },
+  {
+    "instrument": "晚籼稻",
+    "status": "rebuilt",
+    "continuous_rows": 939,
+    "candidates": 9
+  },
+  {
+    "instrument": "普通小麦",
+    "status": "rebuilt",
+    "continuous_rows": 160,
+    "candidates": 2
+  },
+  {
+    "instrument": "棉纱",
+    "status": "rebuilt",
+    "continuous_rows": 2178,
+    "candidates": 13
+  },
+  {
+    "instrument": "棉花",
+    "status": "rebuilt",
+    "continuous_rows": 5291,
+    "candidates": 18
+  },
+  {
+    "instrument": "棕榈油",
+    "status": "rebuilt",
+    "continuous_rows": 4604,
+    "candidates": 27
+  },
+  {
+    "instrument": "油菜籽",
+    "status": "rebuilt",
+    "continuous_rows": 2736,
+    "candidates": 15
+  },
+  {
+    "instrument": "玉米",
+    "status": "rebuilt",
+    "continuous_rows": 5287,
+    "candidates": 27
+  },
+  {
+    "instrument": "玉米淀粉",
+    "status": "rebuilt",
+    "continuous_rows": 2861,
+    "candidates": 16
+  },
+  {
+    "instrument": "生猪",
+    "status": "rebuilt",
+    "continuous_rows": 1389,
+    "candidates": 8
+  },
+  {
+    "instrument": "白糖",
+    "status": "rebuilt",
+    "continuous_rows": 5034,
+    "candidates": 28
+  },
+  {
+    "instrument": "粳稻",
+    "status": "rebuilt",
+    "continuous_rows": 1194,
+    "candidates": 15
+  },
+  {
+    "instrument": "粳米",
+    "status": "rebuilt",
+    "continuous_rows": 1728,
+    "candidates": 12
+  },
+  {
+    "instrument": "红枣",
+    "status": "rebuilt",
+    "continuous_rows": 1800,
+    "candidates": 9
+  },
+  {
+    "instrument": "纤维板",
+    "status": "rebuilt",
+    "continuous_rows": 2791,
+    "candidates": 13
+  },
+  {
+    "instrument": "纸浆",
+    "status": "rebuilt",
+    "continuous_rows": 1903,
+    "candidates": 7
+  },
+  {
+    "instrument": "胶合板",
+    "status": "rebuilt",
+    "continuous_rows": 1413,
+    "candidates": 11
+  },
+  {
+    "instrument": "胶版印刷纸",
+    "status": "rebuilt",
+    "continuous_rows": 256,
+    "candidates": 4
+  },
+  {
+    "instrument": "花生",
+    "status": "rebuilt",
+    "continuous_rows": 1373,
+    "candidates": 8
+  },
+  {
+    "instrument": "苹果",
+    "status": "rebuilt",
+    "continuous_rows": 2124,
+    "candidates": 13
+  },
+  {
+    "instrument": "菜籽油",
+    "status": "rebuilt",
+    "continuous_rows": 4694,
+    "candidates": 17
+  },
+  {
+    "instrument": "菜籽粕",
+    "status": "rebuilt",
+    "continuous_rows": 3336,
+    "candidates": 18
+  },
+  {
+    "instrument": "豆油",
+    "status": "rebuilt",
+    "continuous_rows": 5036,
+    "candidates": 27
+  },
+  {
+    "instrument": "鸡蛋",
+    "status": "rebuilt",
+    "continuous_rows": 3137,
+    "candidates": 18
+  },
+  {
+    "instrument": "黄大豆1号",
+    "status": "rebuilt",
+    "continuous_rows": 5290,
+    "candidates": 28
+  },
+  {
+    "instrument": "黄大豆2号",
+    "status": "rebuilt",
+    "continuous_rows": 4495,
+    "candidates": 26
+  }
+]

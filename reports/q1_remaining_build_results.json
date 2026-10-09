@@ -1,0 +1,282 @@
+[
+  {
+    "instrument": "优质强筋小麦",
+    "status": "built",
+    "contract_rows": 4157,
+    "continuous_rows": 4157,
+    "candidates": 32,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\优质强筋小麦\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\优质强筋小麦\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\优质强筋小麦\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "原木",
+    "status": "built",
+    "contract_rows": 456,
+    "continuous_rows": 456,
+    "candidates": 5,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\原木\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\原木\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\原木\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "早籼稻",
+    "status": "built",
+    "contract_rows": 2430,
+    "continuous_rows": 2430,
+    "candidates": 18,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\早籼稻\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\早籼稻\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\早籼稻\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "晚籼稻",
+    "status": "built",
+    "contract_rows": 939,
+    "continuous_rows": 939,
+    "candidates": 9,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\晚籼稻\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\晚籼稻\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\晚籼稻\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "普通小麦",
+    "status": "built",
+    "contract_rows": 160,
+    "continuous_rows": 160,
+    "candidates": 2,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\普通小麦\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\普通小麦\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\普通小麦\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "棉纱",
+    "status": "built",
+    "contract_rows": 2178,
+    "continuous_rows": 2178,
+    "candidates": 13,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\棉纱\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\棉纱\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\棉纱\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "棉花",
+    "status": "built",
+    "contract_rows": 5291,
+    "continuous_rows": 5291,
+    "candidates": 18,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\棉花\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\棉花\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\棉花\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "棕榈油",
+    "status": "built",
+    "contract_rows": 4604,
+    "continuous_rows": 4604,
+    "candidates": 27,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\棕榈油\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\棕榈油\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\棕榈油\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "油菜籽",
+    "status": "built",
+    "contract_rows": 2736,
+    "continuous_rows": 2736,
+    "candidates": 15,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\油菜籽\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\油菜籽\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\油菜籽\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "玉米",
+    "status": "built",
+    "contract_rows": 5287,
+    "continuous_rows": 5287,
+    "candidates": 27,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\玉米\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\玉米\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\玉米\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "玉米淀粉",
+    "status": "built",
+    "contract_rows": 2861,
+    "continuous_rows": 2861,
+    "candidates": 16,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\玉米淀粉\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\玉米淀粉\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\玉米淀粉\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "生猪",
+    "status": "built",
+    "contract_rows": 1389,
+    "continuous_rows": 1389,
+    "candidates": 8,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\生猪\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\生猪\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\生猪\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "白糖",
+    "status": "built",
+    "contract_rows": 5034,
+    "continuous_rows": 5034,
+    "candidates": 28,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\白糖\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\白糖\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\白糖\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "粳稻",
+    "status": "built",
+    "contract_rows": 1194,
+    "continuous_rows": 1194,
+    "candidates": 15,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\粳稻\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\粳稻\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\粳稻\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "粳米",
+    "status": "built",
+    "contract_rows": 1728,
+    "continuous_rows": 1728,
+    "candidates": 12,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\粳米\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\粳米\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\粳米\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "红枣",
+    "status": "built",
+    "contract_rows": 1800,
+    "continuous_rows": 1800,
+    "candidates": 9,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\红枣\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\红枣\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\红枣\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "纤维板",
+    "status": "built",
+    "contract_rows": 2791,
+    "continuous_rows": 2791,
+    "candidates": 13,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\纤维板\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\纤维板\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\纤维板\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "纸浆",
+    "status": "built",
+    "contract_rows": 1903,
+    "continuous_rows": 1903,
+    "candidates": 7,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\纸浆\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\纸浆\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\纸浆\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "胶合板",
+    "status": "built",
+    "contract_rows": 1413,
+    "continuous_rows": 1413,
+    "candidates": 11,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\胶合板\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\胶合板\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\胶合板\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "胶版印刷纸",
+    "status": "built",
+    "contract_rows": 256,
+    "continuous_rows": 256,
+    "candidates": 4,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\胶版印刷纸\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\胶版印刷纸\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\胶版印刷纸\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "花生",
+    "status": "built",
+    "contract_rows": 1373,
+    "continuous_rows": 1373,
+    "candidates": 8,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\花生\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\花生\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\花生\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "苹果",
+    "status": "built",
+    "contract_rows": 2124,
+    "continuous_rows": 2124,
+    "candidates": 13,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\苹果\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\苹果\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\苹果\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "菜籽油",
+    "status": "built",
+    "contract_rows": 4694,
+    "continuous_rows": 4694,
+    "candidates": 17,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\菜籽油\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\菜籽油\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\菜籽油\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "菜籽粕",
+    "status": "built",
+    "contract_rows": 3336,
+    "continuous_rows": 3336,
+    "candidates": 18,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\菜籽粕\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\菜籽粕\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\菜籽粕\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "豆油",
+    "status": "built",
+    "contract_rows": 5036,
+    "continuous_rows": 5036,
+    "candidates": 27,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\豆油\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\豆油\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\豆油\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "鸡蛋",
+    "status": "built",
+    "contract_rows": 3137,
+    "continuous_rows": 3137,
+    "candidates": 18,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\鸡蛋\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\鸡蛋\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\鸡蛋\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "黄大豆1号",
+    "status": "built",
+    "contract_rows": 5290,
+    "continuous_rows": 5290,
+    "candidates": 28,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\黄大豆1号\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\黄大豆1号\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\黄大豆1号\\q1_coverage_report.md"
+  },
+  {
+    "instrument": "黄大豆2号",
+    "status": "built",
+    "contract_rows": 4495,
+    "continuous_rows": 4495,
+    "candidates": 26,
+    "source_audit": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\黄大豆2号\\data_source_attempts.csv",
+    "candidate_file": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\instruments\\黄大豆2号\\01_Extreme_Market_Database\\extreme_episodes_candidates.csv",
+    "report": "D:\\HuaweiMoveData\\Users\\32874\\Desktop\\Agricultural Extreme Market\\reports\\黄大豆2号\\q1_coverage_report.md"
+  }
+]

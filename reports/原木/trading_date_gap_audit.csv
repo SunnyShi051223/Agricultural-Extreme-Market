@@ -1,0 +1,7 @@
+﻿previous_trade_date,trade_date,gap_calendar_days,missing_weekdays,gap_classification
+2025-01-27,2025-02-05,9,6,likely_exchange_holiday_or_break
+2025-04-30,2025-05-06,6,3,likely_exchange_holiday_or_break
+2025-09-30,2025-10-09,9,6,likely_exchange_holiday_or_break
+2025-12-31,2026-01-05,5,2,likely_exchange_holiday_or_break
+2026-02-13,2026-02-24,11,6,likely_exchange_holiday_or_break
+2026-04-30,2026-05-06,6,3,likely_exchange_holiday_or_break

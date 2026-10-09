@@ -1,0 +1,3 @@
+﻿source,symbol,status,row_count,first_date,last_date,message
+TradingView,DCE:Y1!,failed,0,,,RuntimeError: tvDatafeed is not available in the dedicated environment; TradingView attempt recorded as unavailable
+AkShare/Sina,Y0,success_continuous_proxy,5036,2006-01-09,2026-09-30,Long-history dominant-contract proxy; individual delivery-month panel not requested in this fast path

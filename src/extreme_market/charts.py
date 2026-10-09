@@ -36,7 +36,8 @@ def draw_episode_chart(continuous: pd.DataFrame, episode: pd.Series, output_path
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
     title_font, label_font, small_font = _font(24, True), _font(16), _font(13)
-    draw.text((left, 18), f"Soybean meal {episode.episode_id} | {episode.direction} | Q1 candidate - pending review", fill="#1b2631", font=title_font)
+    instrument = str(episode.get("instrument", "Instrument"))
+    draw.text((left, 18), f"{instrument} {episode.episode_id} | {episode.direction} | Q1 candidate - pending review", fill="#1b2631", font=title_font)
     draw.text((left, 50), "Adjusted price path with volume, open interest, event boundaries, and 60-session context", fill="#566573", font=small_font)
     values = pd.concat([view.adjusted_low, view.adjusted_high]).astype(float).replace([np.inf, -np.inf], np.nan).dropna()
     if values.empty:

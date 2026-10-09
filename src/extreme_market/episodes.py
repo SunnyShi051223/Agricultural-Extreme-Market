@@ -98,6 +98,7 @@ def _merge_same_direction(triggers: pd.DataFrame, gap_sessions: int) -> list[dic
 def scan_extreme_episodes(
     continuous: pd.DataFrame,
     *,
+    instrument_name: str = "豆粕",
     product_code: str = "M",
     horizons: tuple[int, ...] = (20, 60),
     lower_quantile: float = 0.025,
@@ -130,11 +131,12 @@ def scan_extreme_episodes(
             segment = series.iloc[start_pos : end_pos + 1]
             if segment.empty:
                 continue
+            phase_segment = series.iloc[accel_pos : end_pos + 1]
             if direction == "Extreme-Up":
-                extreme_relative = segment.adjusted_high.astype(float).idxmax()
+                extreme_relative = phase_segment.adjusted_high.astype(float).idxmax()
                 extreme_label = "highest_point"
             else:
-                extreme_relative = segment.adjusted_low.astype(float).idxmin()
+                extreme_relative = phase_segment.adjusted_low.astype(float).idxmin()
                 extreme_label = "lowest_point"
             extreme_pos = int(extreme_relative)
             start_close = float(series.iloc[start_pos].adjusted_close)
@@ -156,10 +158,36 @@ def scan_extreme_episodes(
             start_level = float(series.iloc[start_pos].adjusted_close)
             high_level = float(segment.adjusted_high.max())
             low_level = float(segment.adjusted_low.min())
-            same_direction = "UP" if direction == "Extreme-Up" else "DOWN"
+            acceleration_level = float(series.iloc[accel_pos].adjusted_close)
+            extreme_close = float(series.iloc[extreme_pos].adjusted_close)
+            extreme_price = high_level if direction == "Extreme-Up" else low_level
+            post_extreme = series.iloc[extreme_pos : end_pos + 1]
+            if direction == "Extreme-Up":
+                post_extreme_reversal = float(post_extreme.adjusted_low.min() / extreme_price - 1) if extreme_price else np.nan
+            else:
+                post_extreme_reversal = float(post_extreme.adjusted_high.max() / extreme_price - 1) if extreme_price else np.nan
+            low_col = "low" if "low" in segment.columns else "adjusted_low"
+            high_col = "high" if "high" in segment.columns else "adjusted_high"
+            open_col = "open" if "open" in segment.columns else "adjusted_open"
+            close_col = "close" if "close" in segment.columns else "adjusted_close"
+            invalid_ohlc = (
+                (segment[low_col] > segment[high_col])
+                | (segment[open_col] < segment[low_col])
+                | (segment[open_col] > segment[high_col])
+                | (segment[close_col] < segment[low_col])
+                | (segment[close_col] > segment[high_col])
+            ).fillna(False)
+
+            def forward_return(horizon: int) -> float:
+                future_pos = end_pos + horizon
+                if future_pos >= len(series):
+                    return np.nan
+                future_close = series.iloc[future_pos].adjusted_close
+                return float(future_close / end_close - 1) if pd.notna(future_close) and end_close else np.nan
+
             candidates.append(
                 {
-                    "instrument": "豆粕",
+                    "instrument": instrument_name,
                     "product_code": product_code,
                     "episode_id": event_id,
                     "direction": direction,
@@ -169,9 +197,20 @@ def scan_extreme_episodes(
                     "extreme_point_type": extreme_label,
                     "extreme_point_date": series.iloc[extreme_pos].trade_date.date().isoformat(),
                     "event_end_date": series.iloc[end_pos].trade_date.date().isoformat(),
+                    "event_end_rule": "last_trigger_in_merged_window",
+                    "event_duration_sessions": int(end_pos - start_pos + 1),
+                    "event_span_calendar_days": int((series.iloc[end_pos].trade_date - series.iloc[start_pos].trade_date).days),
                     "start_close_adjusted": start_close,
                     "end_close_adjusted": end_close,
                     "event_cumulative_return": end_close / start_close - 1 if start_close else np.nan,
+                    "pre_acceleration_return": acceleration_level / start_level - 1 if start_level else np.nan,
+                    "acceleration_to_extreme_close_return": extreme_close / acceleration_level - 1 if acceleration_level else np.nan,
+                    "extreme_to_end_close_return": end_close / extreme_close - 1 if extreme_close else np.nan,
+                    "extreme_price": extreme_price,
+                    "post_extreme_max_reversal_from_extreme": post_extreme_reversal,
+                    "post_event_return_5d": forward_return(5),
+                    "post_event_return_20d": forward_return(20),
+                    "post_event_return_60d": forward_return(60),
                     "max_up_from_start": high_level / start_level - 1 if start_level else np.nan,
                     "max_down_from_start": low_level / start_level - 1 if start_level else np.nan,
                     "annualized_realized_volatility": volatility,
@@ -179,6 +218,7 @@ def scan_extreme_episodes(
                     "total_volume": float(segment.volume.sum(min_count=1)) if "volume" in segment else np.nan,
                     "mean_open_interest": float(segment.open_interest.mean()) if "open_interest" in segment else np.nan,
                     "max_open_interest": float(segment.open_interest.max()) if "open_interest" in segment else np.nan,
+                    "segment_invalid_ohlc_rows": int(invalid_ohlc.sum()),
                     "trigger_count": len(trigger_rows),
                     "trigger_horizons": ";".join(map(str, sorted({int(row["horizon"]) for row in trigger_rows}))),
                     "tail_thresholds": ";".join(
