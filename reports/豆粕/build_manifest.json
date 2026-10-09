@@ -16,5 +16,17 @@
   "rows_contract_panel": 5293,
   "rows_continuous": 5293,
   "candidate_episodes": 27,
-  "event_definition": "Full-history empirical 2.5%/97.5% tails for 20/60-session adjusted-close returns; same-direction windows are merged by overlap or <=10 trading-session gaps; labels are ex-post and pending manual review."
+  "event_definition": "Full-history empirical 2.5%/97.5% tails for 20/60-session adjusted-close returns; same-direction windows are merged by overlap or <=10 trading-session gaps; labels are ex-post and pending manual review.",
+  "finalization": {
+    "review_date": "2026-10-09",
+    "reviewer": "Codex",
+    "review_status_counts": {
+      "approved": 27,
+      "modified": 0,
+      "rejected": 0,
+      "pending": 0
+    },
+    "final_event_file": "instruments/豆粕/01_Extreme_Market_Database/extreme_episodes.csv",
+    "review_scope_note": "Approved for the Q1 historical proxy database; source is AkShare/Sina M0 continuous proxy and does not constitute delivery-contract roll audit completion."
+  }
 }
